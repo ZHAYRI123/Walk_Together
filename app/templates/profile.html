@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}My Profile{% endblock %}
+
+{% block content %}
+<h2>My Profile</h2>
+
+<!-- Display user information -->
+<p>Name: {{ current_user.name }}</p>
+<p>Email: {{ current_user.email }}</p>
+<!-- Add more user details as needed -->
+
+<!-- Edit Profile Form -->
+<form action="{{ url_for('edit_profile') }}" method="post">
+  <h3>Edit Profile</h3>
+  <!-- Form fields for editing profile information -->
+  <button type="submit">Save Changes</button>
+</form>
+
+<!-- Change Password Form -->
+<form action="{{ url_for('change_password') }}" method="post">
+  <h3>Change Password</h3>
+  <!-- Form fields for changing password -->
+  <button type="submit">Change Password</button>
+</form>
+
+<!-- Log Out Button -->
+<a href="{{ url_for('logout') }}">Log Out</a>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Challenges{% endblock %}
+
+{% block content %}
+<h2>Challenges</h2>
+
+{% if challenges %}
+  <ul>
+    {% for challenge in challenges %}
+      <li>
+        <h3>{{ challenge.title }}</h3>
+        <p>{{ challenge.description }}</p>
+        <p><strong>Start Date:</strong> {{ challenge.start_date }}</p>
+        <p><strong>End Date:</strong> {{ challenge.end_date }}</p>
+        {% if not challenge.is_expired %}
+          <form action="{{ url_for('join_challenge', challenge_id=challenge.id) }}" method="post">
+            <button type="submit">Join Challenge</button>
+          </form>
+        {% else %}
+          <p>This challenge has ended.</p>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No challenges available at the moment.</p>
+{% endif %}
+
+{% endblock %}

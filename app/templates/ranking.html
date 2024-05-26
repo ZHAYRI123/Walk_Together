@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}User Ranking{% endblock %}
+
+{% block content %}
+<h2>User Ranking</h2>
+
+{% if rankings %}
+  <ol>
+    {% for rank, user in rankings %}
+      <li>{{ rank + 1 }}. {{ user.username }} - Points: {{ user.points }}</li>
+    {% endfor %}
+  </ol>
+{% else %}
+  <p>No rankings available at the moment.</p>
+{% endif %}
+
+{% endblock %}

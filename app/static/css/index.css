@@ -1,0 +1,75 @@
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('../../images/logo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #ddc9c9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 50px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+}
+
+header p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+/* Main section styles */
+main {
+    padding: 50px 0;
+}
+
+section {
+    margin-bottom: 50px;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Define animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply animation delay to each section */
+section:nth-child(1) {
+    animation-delay: 0.5s;
+}
+section:nth-child(2) {
+    animation-delay: 1s;
+}
+section:nth-child(3) {
+    animation-delay: 1.5s;
+}
+/* Add more nth-child styles for additional sections */
+
+/* Parallax effect */
+section {
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+section:nth-child(odd) {
+    background-position: center top;
+}
+
+section:nth-child(even) {
+    background-position: center bottom;
+}

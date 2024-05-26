@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}My Tasks{% endblock %}
+
+{% block content %}
+<h2>My Tasks</h2>
+
+<!-- Display tasks -->
+<ul>
+  {% for task in tasks %}
+  <li>
+    <strong>{{ task.title }}</strong>
+    <p>{{ task.description }}</p>
+    <p>Due Date: {{ task.due_date }}</p>
+    <p>Priority: {{ task.priority }}</p>
+    <!-- Add buttons for editing, deleting, etc. -->
+  </li>
+  {% endfor %}
+</ul>
+
+<!-- Add Task Form -->
+<form action="{{ url_for('add_task') }}" method="post">
+  <h3>Add New Task</h3>
+  <!-- Form fields for adding a new task -->
+  <button type="submit">Add Task</button>
+</form>
+{% endblock %}
